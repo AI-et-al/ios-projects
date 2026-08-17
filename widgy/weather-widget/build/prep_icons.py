@@ -87,15 +87,43 @@ def dehaze(im: Image.Image) -> Image.Image:
 TREATMENTS = {"erase_sun": erase_sun, "dehaze": dehaze, None: lambda im: im}
 
 
+def optical_normalize(images: dict) -> dict:
+    """Equalise perceived size: a solid disc (sun) reads much bigger than
+    an irregular cloud at the same geometric size. Scale each icon's
+    content so its alpha mass (sqrt of total alpha) matches the median,
+    clamped so nothing shrinks/grows absurdly or clips its frame."""
+    mass = {c: float(np.sqrt(np.asarray(im)[:, :, 3].astype(float).sum()))
+            for c, im in images.items()}
+    target = sorted(mass.values())[len(mass) // 2]
+    out = {}
+    for cond, im in images.items():
+        f = max(0.78, min(1.12, target / mass[cond]))
+        if abs(f - 1) < 0.03:
+            out[cond] = im
+            continue
+        w = max(1, int(im.width * f))
+        scaled = im.resize((w, w), Image.LANCZOS)
+        frame = Image.new("RGBA", im.size, (0, 0, 0, 0))
+        off = (im.width - w) // 2
+        frame.paste(scaled, (off, off), scaled)
+        out[cond] = frame
+        print(f"  optical: {cond} x{f:.2f}")
+    return out
+
+
 def main():
     OUT.mkdir(parents=True, exist_ok=True)
     for old in OUT.glob("*.png"):
         old.unlink()
+    images = {}
     for cond, (src_id, treatment) in PICKS.items():
         im = TREATMENTS[treatment](Image.open(SRC / f"{src_id}.png"))
-        out = trim_pad_resize(im)
+        images[cond] = trim_pad_resize(im)
+    images = optical_normalize(images)
+    for cond, im in images.items():
+        src_id, treatment = PICKS[cond]
         path = OUT / f"{cond}.png"
-        out.save(path, optimize=True)
+        im.save(path, optimize=True)
         note = f" ({treatment})" if treatment else ""
         print(f"{cond:22s} <- {src_id}{note}  {path.stat().st_size // 1024}KB")
 
