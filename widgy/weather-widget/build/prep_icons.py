@@ -95,9 +95,11 @@ def optical_normalize(images: dict) -> dict:
     mass = {c: float(np.sqrt(np.asarray(im)[:, :, 3].astype(float).sum()))
             for c, im in images.items()}
     target = sorted(mass.values())[len(mass) // 2]
+    # solid discs still read large even at equal alpha mass; bias them down
+    bias = {"clear-day": 0.92, "clear-night": 0.94}
     out = {}
     for cond, im in images.items():
-        f = max(0.78, min(1.12, target / mass[cond]))
+        f = max(0.78, min(1.12, target / mass[cond])) * bias.get(cond, 1.0)
         if abs(f - 1) < 0.03:
             out[cond] = im
             continue
