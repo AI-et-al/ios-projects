@@ -1,0 +1,19 @@
+{
+  "_note": "Top-level *3 keys in the Widgy JSON -> weather condition. HYPOTHESIS: slots follow the Dark Sky condition enum order (Widgy's original weather provider); consistent with the author filling f3-p3 and leaving the 5 rare trailing slots broken. Verify against a screenshot of Widgy's Weather (Custom Images) editor and correct here, then re-run build_widgy.py. null = unknown, left untouched.",
+  "f3": "clear-day",
+  "g3": "clear-night",
+  "h3": "rain",
+  "i3": "snow",
+  "j3": "sleet",
+  "k3": "wind",
+  "l3": "fog",
+  "m3": "cloudy",
+  "n3": "partly-cloudy-day",
+  "o3": "partly-cloudy-night",
+  "p3": "hail",
+  "q3": "thunderstorm",
+  "r3": "tornado",
+  "s3": null,
+  "t3": null,
+  "u3": null
+}

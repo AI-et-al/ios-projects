@@ -1,0 +1,104 @@
+#!/usr/bin/env python3
+"""Prepare the curated 3dweather icons for the Widgy weather widget.
+
+Only 12 of the 45 pack icons are genuinely transparent; the rest have a
+baked-in near-opaque white card (see icons/README.md). Picks below use
+clean sources wherever possible. Three derivations handle the gaps:
+
+- cloudy:  frosted 1069 with the sun erased (no bare-cloud icon in pack)
+- rain:    1096 with the sun erased (no neutral day/night rain in pack)
+- fog/wind: 1085/1094 de-hazed — the white card is removed by keying
+  alpha off saturation/whiteness, safe because their content is beige
+  with grey shadows and contains no white elements.
+
+Run from anywhere: paths are resolved relative to this file.
+"""
+from pathlib import Path
+from PIL import Image
+import numpy as np
+
+HERE = Path(__file__).resolve().parent
+SRC = HERE.parent / "icons" / "src"
+OUT = HERE.parent / "icons" / "prepped"
+OUT_SIZE = 400
+MARGIN = 0.06  # fraction of the square edge
+
+# condition -> (source id, treatment), per icons/README.md curation
+# (frosted-first, transparency-clean sources only).
+PICKS = {
+    "clear-day": ("1000031068", None),
+    "clear-night": ("1000031075", None),
+    "rain": ("1000031096", "erase_sun"),
+    "snow": ("1000031097", None),
+    "sleet": ("1000031087", None),               # frosted
+    "wind": ("1000031094", "dehaze"),
+    "fog": ("1000031085", "dehaze"),
+    "cloudy": ("1000031069", "erase_sun"),       # frosted, derived
+    "partly-cloudy-day": ("1000031069", None),   # frosted
+    "partly-cloudy-night": ("1000031112", None),
+    "hail": ("1000031092", None),
+    "thunderstorm": ("1000031080", None),        # frosted
+    "tornado": ("1000031088", None),
+}
+
+
+def trim_pad_resize(im: Image.Image) -> Image.Image:
+    im = im.convert("RGBA")
+    a = np.asarray(im)[:, :, 3]
+    ys, xs = np.where(a > 8)
+    if len(xs):
+        im = im.crop((xs.min(), ys.min(), xs.max() + 1, ys.max() + 1))
+    edge = int(max(im.size) * (1 + 2 * MARGIN))
+    sq = Image.new("RGBA", (edge, edge), (0, 0, 0, 0))
+    sq.paste(im, ((edge - im.width) // 2, (edge - im.height) // 2), im)
+    return sq.resize((OUT_SIZE, OUT_SIZE), Image.LANCZOS)
+
+
+def erase_sun(im: Image.Image) -> Image.Image:
+    """Remove warm-hue (sun) pixels; neutralise warm tint bleeding
+    through translucent cloud areas."""
+    px = np.asarray(im.convert("RGBA")).astype(int)
+    r, g, b, a = px[..., 0], px[..., 1], px[..., 2], px[..., 3]
+    warm = (r - b > 25) & (r > 120)
+    strong = warm & (r - b > 60)
+    a[strong] = 0
+    tint = warm & ~strong
+    grey = (r + g + b) // 3
+    for c in range(3):
+        px[..., c][tint] = grey[tint]
+    px[..., 3] = a
+    return Image.fromarray(px.astype("uint8"), "RGBA")
+
+
+def dehaze(im: Image.Image) -> Image.Image:
+    """Remove the baked white card: keep saturated (beige) content and
+    darker grey shadows, fade pure-white low-saturation pixels out."""
+    px = np.asarray(im.convert("RGBA")).astype(float)
+    r, g, b, a = px[..., 0], px[..., 1], px[..., 2], px[..., 3]
+    mx = np.maximum(np.maximum(r, g), b)
+    mn = np.minimum(np.minimum(r, g), b)
+    sat = (mx - mn) / 255.0
+    whiteness = mn / 255.0
+    keep = np.clip(np.maximum(sat * 8.0, (1.0 - whiteness) * 4.0), 0.0, 1.0)
+    px[..., 3] = a * keep
+    return Image.fromarray(px.astype("uint8"), "RGBA")
+
+
+TREATMENTS = {"erase_sun": erase_sun, "dehaze": dehaze, None: lambda im: im}
+
+
+def main():
+    OUT.mkdir(parents=True, exist_ok=True)
+    for old in OUT.glob("*.png"):
+        old.unlink()
+    for cond, (src_id, treatment) in PICKS.items():
+        im = TREATMENTS[treatment](Image.open(SRC / f"{src_id}.png"))
+        out = trim_pad_resize(im)
+        path = OUT / f"{cond}.png"
+        out.save(path, optimize=True)
+        note = f" ({treatment})" if treatment else ""
+        print(f"{cond:22s} <- {src_id}{note}  {path.stat().st_size // 1024}KB")
+
+
+if __name__ == "__main__":
+    main()
