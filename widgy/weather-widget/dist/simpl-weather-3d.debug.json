@@ -1,14 +1,14 @@
 {
  "l2": "",
- "j3": "https://raw.githubusercontent.com/AI-et-al/ios-projects/a7f767282ec54cd8a489f66e1c0f7b222185d645/widgy/weather-widget/icons/hero/sleet.png",
+ "j3": "https://raw.githubusercontent.com/AI-et-al/ios-projects/18c0c465d14150b5f12a731d2b20ca96a55027c1/widgy/weather-widget/icons/hero/sleet.png",
  "u3": "https://xbmc4gamers.co.uk/Widgy/WIS/%E2%80%8ACustomundefined",
  "s3": "https://xbmc4gamers.co.uk/Widgy/WIS/%E2%80%8ACustomundefined",
  "0": 27,
  "o2": "",
  "zzz": "",
  "10": true,
- "i3": "https://raw.githubusercontent.com/AI-et-al/ios-projects/a7f767282ec54cd8a489f66e1c0f7b222185d645/widgy/weather-widget/icons/hero/snow.png",
- "n3": "https://raw.githubusercontent.com/AI-et-al/ios-projects/a7f767282ec54cd8a489f66e1c0f7b222185d645/widgy/weather-widget/icons/hero/partly-cloudy-day.png",
+ "i3": "https://raw.githubusercontent.com/AI-et-al/ios-projects/18c0c465d14150b5f12a731d2b20ca96a55027c1/widgy/weather-widget/icons/hero/snow.png",
+ "n3": "https://raw.githubusercontent.com/AI-et-al/ios-projects/18c0c465d14150b5f12a731d2b20ca96a55027c1/widgy/weather-widget/icons/hero/partly-cloudy-day.png",
  "1": [
   {
    "e": {
@@ -1089,10 +1089,11 @@
        }
       },
       {
-       "d": {
+       "d0": 5,
+       "b": {
         "a": [
          {
-          "a": 199.99999999999957,
+          "a": 564.9999999999998,
           "b": 1312
          }
         ],
@@ -1102,34 +1103,32 @@
         "b": 0,
         "a": [
          {
-          "a": 698,
+          "a": 663.0,
           "b": 1312
          }
         ]
        },
-       "b": {
+       "d": {
         "a": [
          {
-          "a": 600,
+          "a": 270,
           "b": 1312
          }
         ],
         "b": 0
        },
-       "3": "Weather 2 (Now)",
-       "f": "uicol_white-100",
-       "z": "4",
        "e": {
         "a": [
          {
-          "a": 200,
+          "a": 270,
           "b": 1312
          }
         ],
         "b": 0
        },
-       "d0": 5,
-       "4": "ss_"
+       "z": "5",
+       "1": "Web URL",
+       "2": "https://cusyejearwlwbqeabspa.supabase.co/functions/v1/icon?offset=now"
       },
       {
        "b": {
@@ -3384,31 +3383,31 @@
    }
   }
  ],
- "q3": "https://raw.githubusercontent.com/AI-et-al/ios-projects/a7f767282ec54cd8a489f66e1c0f7b222185d645/widgy/weather-widget/icons/hero/thunderstorm.png",
+ "q3": "https://raw.githubusercontent.com/AI-et-al/ios-projects/18c0c465d14150b5f12a731d2b20ca96a55027c1/widgy/weather-widget/icons/hero/thunderstorm.png",
  "6": 2,
- "r3": "https://raw.githubusercontent.com/AI-et-al/ios-projects/a7f767282ec54cd8a489f66e1c0f7b222185d645/widgy/weather-widget/icons/hero/tornado.png",
- "k3": "https://raw.githubusercontent.com/AI-et-al/ios-projects/a7f767282ec54cd8a489f66e1c0f7b222185d645/widgy/weather-widget/icons/hero/wind.png",
+ "r3": "https://raw.githubusercontent.com/AI-et-al/ios-projects/18c0c465d14150b5f12a731d2b20ca96a55027c1/widgy/weather-widget/icons/hero/tornado.png",
+ "k3": "https://raw.githubusercontent.com/AI-et-al/ios-projects/18c0c465d14150b5f12a731d2b20ca96a55027c1/widgy/weather-widget/icons/hero/wind.png",
  "20": false,
  "a2": 119,
- "l3": "https://raw.githubusercontent.com/AI-et-al/ios-projects/a7f767282ec54cd8a489f66e1c0f7b222185d645/widgy/weather-widget/icons/hero/fog.png",
- "o3": "https://raw.githubusercontent.com/AI-et-al/ios-projects/a7f767282ec54cd8a489f66e1c0f7b222185d645/widgy/weather-widget/icons/hero/partly-cloudy-night.png",
+ "l3": "https://raw.githubusercontent.com/AI-et-al/ios-projects/18c0c465d14150b5f12a731d2b20ca96a55027c1/widgy/weather-widget/icons/hero/fog.png",
+ "o3": "https://raw.githubusercontent.com/AI-et-al/ios-projects/18c0c465d14150b5f12a731d2b20ca96a55027c1/widgy/weather-widget/icons/hero/partly-cloudy-night.png",
  "3": "Simpl.weather 3D",
  "t3": "https://xbmc4gamers.co.uk/Widgy/WIS/%E2%80%8ACustomundefined",
- "g3": "https://raw.githubusercontent.com/AI-et-al/ios-projects/a7f767282ec54cd8a489f66e1c0f7b222185d645/widgy/weather-widget/icons/hero/clear-night.png",
+ "g3": "https://raw.githubusercontent.com/AI-et-al/ios-projects/18c0c465d14150b5f12a731d2b20ca96a55027c1/widgy/weather-widget/icons/hero/clear-night.png",
  "m2": "",
- "f3": "https://raw.githubusercontent.com/AI-et-al/ios-projects/a7f767282ec54cd8a489f66e1c0f7b222185d645/widgy/weather-widget/icons/hero/clear-day.png",
+ "f3": "https://raw.githubusercontent.com/AI-et-al/ios-projects/18c0c465d14150b5f12a731d2b20ca96a55027c1/widgy/weather-widget/icons/hero/clear-day.png",
  "21": false,
  "p2": "",
  "9": 15580,
- "m3": "https://raw.githubusercontent.com/AI-et-al/ios-projects/a7f767282ec54cd8a489f66e1c0f7b222185d645/widgy/weather-widget/icons/hero/cloudy.png",
+ "m3": "https://raw.githubusercontent.com/AI-et-al/ios-projects/18c0c465d14150b5f12a731d2b20ca96a55027c1/widgy/weather-widget/icons/hero/cloudy.png",
  "29": true,
  "q2": "",
- "p3": "https://raw.githubusercontent.com/AI-et-al/ios-projects/a7f767282ec54cd8a489f66e1c0f7b222185d645/widgy/weather-widget/icons/hero/hail.png",
+ "p3": "https://raw.githubusercontent.com/AI-et-al/ios-projects/18c0c465d14150b5f12a731d2b20ca96a55027c1/widgy/weather-widget/icons/hero/hail.png",
  "2": [
   "hexcol_FF382C3057714484BEE27415E161A621-D71820FF"
  ],
  "4": "Stand alone weather widgy. Tap 3 buttons on side for 3 different pages of info (now, 3 hours forcast, 3 day forcast)",
- "h3": "https://raw.githubusercontent.com/AI-et-al/ios-projects/a7f767282ec54cd8a489f66e1c0f7b222185d645/widgy/weather-widget/icons/hero/rain.png",
+ "h3": "https://raw.githubusercontent.com/AI-et-al/ios-projects/18c0c465d14150b5f12a731d2b20ca96a55027c1/widgy/weather-widget/icons/hero/rain.png",
  "5": "MachineWashCold_",
  "n2": ""
 }

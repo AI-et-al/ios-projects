@@ -28,7 +28,7 @@ DIST = HERE.parent / "dist"
 FONT = "Numans-Regular"
 STATE = 646  # single-state widget; constant id, as in the Ithon export
 SERVICE = "https://cusyejearwlwbqeabspa.supabase.co/functions/v1/icon?offset={o}"
-HERO_SHA = "a7f767282ec54cd8a489f66e1c0f7b222185d645"
+HERO_SHA = "18c0c465d14150b5f12a731d2b20ca96a55027c1"
 HERO_BASE = ("https://raw.githubusercontent.com/AI-et-al/ios-projects/"
              f"{HERO_SHA}/widgy/weather-widget/icons/hero/{{c}}.png")
 

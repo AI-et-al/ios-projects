@@ -8,7 +8,7 @@
 // Weather from Open-Meteo (no key). Default location: Dallas, TX.
 
 const ICON_BASE =
-  "https://raw.githubusercontent.com/AI-et-al/ios-projects/c73c4cc60bcde2c9c5c7dc6fd59e082afa436d00/widgy/weather-widget/icons/prepped/";
+  "https://raw.githubusercontent.com/AI-et-al/ios-projects/18c0c465d14150b5f12a731d2b20ca96a55027c1/widgy/weather-widget/icons/prepped/";
 
 function condition(code: number, isDay: boolean): string {
   const dn = (d: string, n: string) => (isDay ? d : n);
