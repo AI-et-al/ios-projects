@@ -18,9 +18,9 @@ FONT = "Numans-Regular"
 STATE = 646
 SERVICE = "https://cusyejearwlwbqeabspa.supabase.co/functions/v1/icon?offset={o}"
 
-COL_X = (230, 610, 990, 1370)    # column centers
-TEMP_Y = (300, 420, 540, 660)    # staircase: static downward stagger
-ICON = 300                        # Miniiii-scale: ~3x the temp text height
+COL_X = (300, 800, 1300)         # three columns on the line
+TEMP_Y = (320, 480, 640)         # staircase: static downward stagger
+ICON = 320                        # Miniiii-scale icons
 
 _d0 = iter(range(1, 200))
 
@@ -60,36 +60,36 @@ def main():
         {"z": "11", "d0": next(_d0), "4a": "openURL_weather://",
          **frame(0, 0, 1600, 1600)},
         # header
-        text(70, 85, 760, 100, [{"5": "Location", "6": "City"}], name="City"),
-        text(70, 195, 860, 85, [wnow("Status (Simple)")],
+        text(70, 80, 780, 120, [{"5": "Location", "6": "City"}], name="City"),
+        text(70, 210, 880, 95, [wnow("Status (Simple)")],
              "uicol_white-50", "Condition"),
-        text(1000, 95, 530, 85,
-             [t("↑"), wnow("Max. Temperature Today"), t("°  "),
-              t("↓"), wnow("Min. Temperature Today"), t("°")],
+        text(980, 100, 550, 95,
+             [t("↑"), wnow("Max. Temperature Today"), t("  "),
+              t("↓"), wnow("Min. Temperature Today")],
              "uicol_white-50", "Hi-Lo", fmt=2),
     ]
     # staircase columns: temp over live icon
     for i, (cx, ty) in enumerate(zip(COL_X, TEMP_Y), start=1):
         layers += [
-            text(cx - 160, ty, 320, 95,
+            text(cx - 180, ty, 360, 150,
                  [{"5": "Weather (Hourly)",
-                   "6": f"+{i}h - Temperature (Always In F°)"}, t("°")],
+                   "6": f"+{i}h - Temperature"}, t("°")],
                  name=f"+{i}h temp", fmt=2),
             {"z": "5", "d0": next(_d0), "s": f"+{i}h icon",
              "1": "Web URL", "2": SERVICE.format(o=f"{i}h"),
-             **frame(cx - ICON / 2, ty + 105, ICON, ICON)},
+             **frame(cx - ICON / 2, ty + 160, ICON, ICON)},
         ]
     # hour labels straight on the card (dark Weather Line style)
     for i, cx in enumerate(COL_X, start=1):
         layers.append(
-            text(cx - 150, 1130, 300, 75,
+            text(cx - 170, 1160, 340, 100,
                  [{"5": "Javascript", "6": "Script",
                    "10": hour_js.replace("{N}", str(i))}],
                  "uicol_white-50", f"+{i}h hour"))
     layers += [
-        text(150, 1265, 1300, 85,
-             [t("Feels like "), wnow("Feels Like Temperature (Always In F°)"),
-              t("°")], "uicol_white-50", "Footer", fmt=2),
+        text(150, 1290, 1300, 100,
+             [t("Feels like "), wnow("Feels Like Temperature (Always In F°)")],
+             "uicol_white-50", "Footer", fmt=2),
         {"z": "2", "d0": next(_d0), "s": "Card", "g": "uicol_black-100",
          "f0": V(10), **frame(0, 0, 1600, 1600)},
         {"z": "5", "d0": next(_d0), "1": "Transparent Background",
@@ -98,7 +98,7 @@ def main():
 
     doc = {
         "3": "Weather Line 3D",
-        "4": ("City, hi/lo, and the next four hours on a staircase — a "
+        "4": ("City, hi/lo, and the next three hours on a staircase — a "
               "from-scratch remake of PC's Weather Line with the 3dweather "
               "icon set, Numans, and live per-hour icons."),
         "5": "AI et al.",
