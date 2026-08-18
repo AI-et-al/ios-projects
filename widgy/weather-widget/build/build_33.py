@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 """Build "33" — an original small Widgy widget, authored from scratch.
 
-A fork of ideas: DeSolarised's structure (dark card, big now-temp + big
-icon, next-hours strip) x Weather Line's information density (city, hi/lo,
-condition, hour labels), rendered with this repo's assets: 3dweather hero
-icon via Weather (Custom Images) slots, live hourly icons via the Supabase
-Web URL service, Numans type. Near-solid dark background — no frosted glass.
+v2: restructured to match the owner's hand-built DschubbaLokki reference —
+icon-dominant ratios. Top: now-temp, hairline divider, BIG hero icon
+(Weather Custom Images). Below: three horizontal rows, each small +Nh
+label / large live icon (Web URL service) / temp. Near-solid dark card,
+no frosted glass, Numans everywhere.
 
 Schema knowledge (all verified against real exports):
 - document skeleton from the "Ithon" reference export
@@ -39,6 +39,14 @@ SLOTS = {  # Dark Sky enum order, same hypothesis as Simpl.weather 3D
     "q3": "thunderstorm", "r3": "tornado",
 }
 
+# icon-dominant ratios, after the DschubbaLokki reference
+HERO = 640          # hero icon edge; ~1.7x the temp digit height
+TEMP_H = 300        # now-temp text height
+ROW_ICON = 250      # row icon edge
+ROW_LABEL_H = 90    # +Nh label height
+ROW_TEMP_H = 130    # row temp height
+ROW_CENTERS = (930, 1190, 1450)
+
 _d0 = iter(range(1, 200))
 
 
@@ -62,47 +70,30 @@ def t(s):  # custom text field
     return {"5": "Custom Text", "6": "Text", "25": s}
 
 
-def wnow(field):  # Weather (Now) field
-    return {"5": "Weather (Now)", "6": field}
-
-
 def main():
-    hour_js = ("var main = function() {\n    today = new Date();\n"
-               "    today.setHours(today.getHours() + {N});\n"
-               "    return today.toLocaleString([], {hour: 'numeric'});\n}")
-
     layers = [
         # topmost: tap-through to the Weather app
         {"z": "11", "d0": next(_d0), "4a": "openURL_weather://",
          **frame(0, 0, 1600, 1600)},
-        # header block, left
-        text(70, 105, 620, 85, [{"5": "Location", "6": "City"}],
-             "uicol_white-50", "City"),
-        text(30, 195, 800, 330,
-             [wnow("Temperature (Always In F°)"), t("°")], name="Temp now"),
-        text(70, 560, 660, 95,
-             [t("↑"), wnow("Max. Temperature Today"), t("°  "),
-              t("↓"), wnow("Min. Temperature Today"), t("°")],
-             "uicol_white-50", "Hi-Lo"),
-        text(70, 668, 660, 95, [wnow("Status (Simple)")],
-             "uicol_white-50", "Condition"),
-        # hero: current-condition 3D icon, top right
+        # top block: temp | divider | dominant hero
+        text(40, 250, 580, TEMP_H,
+             [{"5": "Weather (Now)", "6": "Temperature (Always In F°)"},
+              t("°")], name="Temp now"),
+        {"z": "2", "d0": next(_d0), "s": "Divider", "g": "uicol_white-25",
+         "f0": V(3), **frame(668, 180, 6, 440)},
         {"z": "5", "d0": next(_d0), "s": "Hero",
          "1": "Weather (Custom Images)", "2": "Symbol",
-         **frame(890, 140, 570, 570)},
-        # next-hours strip
-        text(90, 875, 520, 70, [t("NEXT HOURS")], "uicol_white-50", "Strip label"),
+         **frame(760, 80, HERO, HERO)},
     ]
-    for i, cx in enumerate((350, 800, 1250), start=1):
+    for i, cy in enumerate(ROW_CENTERS, start=1):
         layers += [
+            text(90, cy - ROW_LABEL_H / 2, 280, ROW_LABEL_H,
+                 [t(f"+{i}h")], "uicol_white-50", f"+{i}h label"),
             {"z": "5", "d0": next(_d0), "s": f"+{i}h icon",
              "1": "Web URL", "2": SERVICE.format(o=f"{i}h"),
-             **frame(cx - 135, 985, 270, 270)},
-            text(cx - 160, 1275, 320, 75,
-                 [{"5": "Javascript", "6": "Script",
-                   "10": hour_js.replace("{N}", str(i))}],
-                 "uicol_white-50", f"+{i}h hour"),
-            text(cx - 170, 1360, 340, 115,
+             **frame(800 - ROW_ICON / 2, cy - ROW_ICON / 2,
+                     ROW_ICON, ROW_ICON)},
+            text(1140, cy - ROW_TEMP_H / 2, 390, ROW_TEMP_H,
                  [{"5": "Weather (Hourly)",
                    "6": f"+{i}h - Temperature (Always In F°)"}, t("°")],
                  name=f"+{i}h temp"),
@@ -118,9 +109,10 @@ def main():
 
     doc = {
         "3": "33",
-        "4": ("Now + next 3 hours. A fork of ideas from DeSolarised "
-              "(Zooropalg) and Weather Line (PC), with the 3dweather icon "
-              "set, Numans, and live per-hour icons."),
+        "4": ("Now + next 3 hours, icon-forward. A fork of ideas from "
+              "DeSolarised (Zooropalg), Weather Line (PC), and "
+              "DschubbaLokki, with the 3dweather icon set, Numans, and "
+              "live per-hour icons."),
         "5": "AI et al.",
         "1": layers,
         "0": 27, "6": 2, "9": 33, "10": True, "20": False, "21": False,
@@ -137,7 +129,7 @@ def main():
     (DIST / "33.debug.json").write_text(json.dumps(doc, indent=1, ensure_ascii=False))
     back = json.loads(zlib.decompress(out.read_bytes(), -15))
     assert back == doc, "round-trip mismatch"
-    print(f"33: {len(layers)} layers, {out.stat().st_size} bytes "
+    print(f"33 v2: {len(layers)} layers, {out.stat().st_size} bytes "
           f"(json {len(payload)}), round-trip OK")
 
 

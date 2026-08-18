@@ -32,9 +32,9 @@ Deno.serve(async (req: Request) => {
     const lat = u.searchParams.get("lat") ?? "32.7767";
     const lon = u.searchParams.get("lon") ?? "-96.797";
     const debug = u.searchParams.get("debug");
-    const m = /^(now|([123])([hd]))$/.exec(offset);
+    const m = /^(?:now|([1-6])h|([1-3])d)$/.exec(offset);
     if (!m) {
-      return Response.json({ error: "offset must be now|1h|2h|3h|1d|2d|3d" }, { status: 400 });
+      return Response.json({ error: "offset must be now|1h..6h|1d..3d" }, { status: 400 });
     }
 
     const wxUrl =
@@ -44,8 +44,8 @@ Deno.serve(async (req: Request) => {
     const wx = await (await fetch(wxUrl)).json();
 
     let code: number, isDay: boolean, when: string;
-    if (offset === "now" || m[3] === "h") {
-      const n = offset === "now" ? 0 : parseInt(m[2], 10);
+    if (offset === "now" || m[1]) {
+      const n = offset === "now" ? 0 : parseInt(m[1], 10);
       const localNow = new Date(Date.now() + wx.utc_offset_seconds * 1000);
       const hourIso = localNow.toISOString().slice(0, 13) + ":00";
       let i = wx.hourly.time.indexOf(hourIso);
@@ -57,6 +57,7 @@ Deno.serve(async (req: Request) => {
     } else {
       const n = parseInt(m[2], 10);
       const j = Math.min(n, wx.daily.time.length - 1);
+      // (daily branch: m[2] is the day count)
       code = wx.daily.weather_code[j];
       isDay = true; // daily forecast always uses day-variant icons
       when = wx.daily.time[j];
