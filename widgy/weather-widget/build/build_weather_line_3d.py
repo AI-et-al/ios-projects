@@ -38,9 +38,8 @@ def text(x, y, w, h, fields, color="uicol_white-100", name=None, fmt=None):
          "66": [{"34": FONT, **f} for f in fields]}
     if name:
         L["s"] = name
-    if fmt is not None:  # number-format key from the original export;
-        L["8"] = V(fmt)  # suppresses the unit suffix (no more 107°F°)
-    return L
+    return L  # (plain Temperature fields + custom ° = clean units,
+    # per the iWeather 2 reference export; no format keys needed)
 
 
 def t(s):
@@ -60,13 +59,15 @@ def main():
         {"z": "11", "d0": next(_d0), "4a": "openURL_weather://",
          **frame(0, 0, 1600, 1600)},
         # header
-        text(70, 80, 780, 120, [{"5": "Location", "6": "City"}], name="City"),
+        {"z": "4", "d0": next(_d0), "s": "Pin", "3": "location.fill",
+         "1": 1, "f": "uicol_white-100", **frame(70, 100, 80, 95)},
+        text(165, 80, 700, 120, [{"5": "Location", "6": "City"}], name="City"),
         text(70, 210, 880, 95, [wnow("Status (Simple)")],
              "uicol_white-50", "Condition"),
         text(980, 100, 550, 95,
-             [t("↑"), wnow("Max. Temperature Today"), t("  "),
-              t("↓"), wnow("Min. Temperature Today")],
-             "uicol_white-50", "Hi-Lo", fmt=2),
+             [t("↑"), wnow("Max. Temperature Today"), t("°  "),
+              t("↓"), wnow("Min. Temperature Today"), t("°")],
+             "uicol_white-50", "Hi-Lo"),
     ]
     # staircase columns: temp over live icon
     for i, (cx, ty) in enumerate(zip(COL_X, TEMP_Y), start=1):
@@ -74,7 +75,7 @@ def main():
             text(cx - 180, ty, 360, 150,
                  [{"5": "Weather (Hourly)",
                    "6": f"+{i}h - Temperature"}, t("°")],
-                 name=f"+{i}h temp", fmt=2),
+                 name=f"+{i}h temp"),
             {"z": "5", "d0": next(_d0), "s": f"+{i}h icon",
              "1": "Web URL", "2": SERVICE.format(o=f"{i}h"),
              **frame(cx - ICON / 2, ty + 160, ICON, ICON)},
@@ -88,8 +89,8 @@ def main():
                  "uicol_white-50", f"+{i}h hour"))
     layers += [
         text(150, 1290, 1300, 100,
-             [t("Feels like "), wnow("Feels Like Temperature (Always In F°)")],
-             "uicol_white-50", "Footer", fmt=2),
+             [t("Feels like "), wnow("Feels Like Temperature"), t("°")],
+             "uicol_white-50", "Footer"),
         {"z": "2", "d0": next(_d0), "s": "Card", "g": "uicol_black-100",
          "f0": V(10), **frame(0, 0, 1600, 1600)},
         {"z": "5", "d0": next(_d0), "1": "Transparent Background",

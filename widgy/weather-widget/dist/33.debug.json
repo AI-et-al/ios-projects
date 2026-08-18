@@ -89,7 +89,7 @@
     {
      "34": "Numans-Regular",
      "5": "Weather (Now)",
-     "6": "Temperature (Always In F°)"
+     "6": "Temperature"
     },
     {
      "34": "Numans-Regular",
@@ -98,16 +98,7 @@
      "25": "°"
     }
    ],
-   "s": "Temp now",
-   "8": {
-    "a": [
-     {
-      "a": 1,
-      "b": 646
-     }
-    ],
-    "b": 0
-   }
+   "s": "Temp now"
   },
   {
    "z": "2",
@@ -342,7 +333,7 @@
     {
      "34": "Numans-Regular",
      "5": "Weather (Hourly)",
-     "6": "+1h - Temperature (Always In F°)"
+     "6": "+1h - Temperature"
     },
     {
      "34": "Numans-Regular",
@@ -351,16 +342,7 @@
      "25": "°"
     }
    ],
-   "s": "+1h temp",
-   "8": {
-    "a": [
-     {
-      "a": 2,
-      "b": 646
-     }
-    ],
-    "b": 0
-   }
+   "s": "+1h temp"
   },
   {
    "z": "1",
@@ -501,7 +483,7 @@
     {
      "34": "Numans-Regular",
      "5": "Weather (Hourly)",
-     "6": "+2h - Temperature (Always In F°)"
+     "6": "+2h - Temperature"
     },
     {
      "34": "Numans-Regular",
@@ -510,16 +492,7 @@
      "25": "°"
     }
    ],
-   "s": "+2h temp",
-   "8": {
-    "a": [
-     {
-      "a": 2,
-      "b": 646
-     }
-    ],
-    "b": 0
-   }
+   "s": "+2h temp"
   },
   {
    "z": "1",
@@ -660,7 +633,7 @@
     {
      "34": "Numans-Regular",
      "5": "Weather (Hourly)",
-     "6": "+3h - Temperature (Always In F°)"
+     "6": "+3h - Temperature"
     },
     {
      "34": "Numans-Regular",
@@ -669,16 +642,7 @@
      "25": "°"
     }
    ],
-   "s": "+3h temp",
-   "8": {
-    "a": [
-     {
-      "a": 2,
-      "b": 646
-     }
-    ],
-    "b": 0
-   }
+   "s": "+3h temp"
   },
   {
    "z": "2",

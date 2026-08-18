@@ -45,14 +45,58 @@
    }
   },
   {
-   "z": "1",
+   "z": "4",
    "d0": 2,
-   "1": "Numans-Regular",
+   "s": "Pin",
+   "3": "location.fill",
+   "1": 1,
    "f": "uicol_white-100",
    "b": {
     "a": [
      {
       "a": 70,
+      "b": 646
+     }
+    ],
+    "b": 0
+   },
+   "c": {
+    "a": [
+     {
+      "a": 100,
+      "b": 646
+     }
+    ],
+    "b": 0
+   },
+   "d": {
+    "a": [
+     {
+      "a": 80,
+      "b": 646
+     }
+    ],
+    "b": 0
+   },
+   "e": {
+    "a": [
+     {
+      "a": 95,
+      "b": 646
+     }
+    ],
+    "b": 0
+   }
+  },
+  {
+   "z": "1",
+   "d0": 3,
+   "1": "Numans-Regular",
+   "f": "uicol_white-100",
+   "b": {
+    "a": [
+     {
+      "a": 165,
       "b": 646
      }
     ],
@@ -70,7 +114,7 @@
    "d": {
     "a": [
      {
-      "a": 780,
+      "a": 700,
       "b": 646
      }
     ],
@@ -96,7 +140,7 @@
   },
   {
    "z": "1",
-   "d0": 3,
+   "d0": 4,
    "1": "Numans-Regular",
    "f": "uicol_white-50",
    "b": {
@@ -146,7 +190,7 @@
   },
   {
    "z": "1",
-   "d0": 4,
+   "d0": 5,
    "1": "Numans-Regular",
    "f": "uicol_white-50",
    "b": {
@@ -201,7 +245,7 @@
      "34": "Numans-Regular",
      "5": "Custom Text",
      "6": "Text",
-     "25": "  "
+     "25": "°  "
     },
     {
      "34": "Numans-Regular",
@@ -213,22 +257,19 @@
      "34": "Numans-Regular",
      "5": "Weather (Now)",
      "6": "Min. Temperature Today"
+    },
+    {
+     "34": "Numans-Regular",
+     "5": "Custom Text",
+     "6": "Text",
+     "25": "°"
     }
    ],
-   "s": "Hi-Lo",
-   "8": {
-    "a": [
-     {
-      "a": 2,
-      "b": 646
-     }
-    ],
-    "b": 0
-   }
+   "s": "Hi-Lo"
   },
   {
    "z": "1",
-   "d0": 5,
+   "d0": 6,
    "1": "Numans-Regular",
    "f": "uicol_white-100",
    "b": {
@@ -280,20 +321,11 @@
      "25": "°"
     }
    ],
-   "s": "+1h temp",
-   "8": {
-    "a": [
-     {
-      "a": 2,
-      "b": 646
-     }
-    ],
-    "b": 0
-   }
+   "s": "+1h temp"
   },
   {
    "z": "5",
-   "d0": 6,
+   "d0": 7,
    "s": "+1h icon",
    "1": "Web URL",
    "2": "https://cusyejearwlwbqeabspa.supabase.co/functions/v1/icon?offset=1h",
@@ -336,7 +368,7 @@
   },
   {
    "z": "1",
-   "d0": 7,
+   "d0": 8,
    "1": "Numans-Regular",
    "f": "uicol_white-100",
    "b": {
@@ -388,20 +420,11 @@
      "25": "°"
     }
    ],
-   "s": "+2h temp",
-   "8": {
-    "a": [
-     {
-      "a": 2,
-      "b": 646
-     }
-    ],
-    "b": 0
-   }
+   "s": "+2h temp"
   },
   {
    "z": "5",
-   "d0": 8,
+   "d0": 9,
    "s": "+2h icon",
    "1": "Web URL",
    "2": "https://cusyejearwlwbqeabspa.supabase.co/functions/v1/icon?offset=2h",
@@ -444,7 +467,7 @@
   },
   {
    "z": "1",
-   "d0": 9,
+   "d0": 10,
    "1": "Numans-Regular",
    "f": "uicol_white-100",
    "b": {
@@ -496,20 +519,11 @@
      "25": "°"
     }
    ],
-   "s": "+3h temp",
-   "8": {
-    "a": [
-     {
-      "a": 2,
-      "b": 646
-     }
-    ],
-    "b": 0
-   }
+   "s": "+3h temp"
   },
   {
    "z": "5",
-   "d0": 10,
+   "d0": 11,
    "s": "+3h icon",
    "1": "Web URL",
    "2": "https://cusyejearwlwbqeabspa.supabase.co/functions/v1/icon?offset=3h",
@@ -552,7 +566,7 @@
   },
   {
    "z": "1",
-   "d0": 11,
+   "d0": 12,
    "1": "Numans-Regular",
    "f": "uicol_white-50",
    "b": {
@@ -603,7 +617,7 @@
   },
   {
    "z": "1",
-   "d0": 12,
+   "d0": 13,
    "1": "Numans-Regular",
    "f": "uicol_white-50",
    "b": {
@@ -654,7 +668,7 @@
   },
   {
    "z": "1",
-   "d0": 13,
+   "d0": 14,
    "1": "Numans-Regular",
    "f": "uicol_white-50",
    "b": {
@@ -705,7 +719,7 @@
   },
   {
    "z": "1",
-   "d0": 14,
+   "d0": 15,
    "1": "Numans-Regular",
    "f": "uicol_white-50",
    "b": {
@@ -754,23 +768,20 @@
     {
      "34": "Numans-Regular",
      "5": "Weather (Now)",
-     "6": "Feels Like Temperature (Always In F°)"
+     "6": "Feels Like Temperature"
+    },
+    {
+     "34": "Numans-Regular",
+     "5": "Custom Text",
+     "6": "Text",
+     "25": "°"
     }
    ],
-   "s": "Footer",
-   "8": {
-    "a": [
-     {
-      "a": 2,
-      "b": 646
-     }
-    ],
-    "b": 0
-   }
+   "s": "Footer"
   },
   {
    "z": "2",
-   "d0": 15,
+   "d0": 16,
    "s": "Card",
    "g": "uicol_black-100",
    "f0": {
@@ -821,7 +832,7 @@
   },
   {
    "z": "5",
-   "d0": 16,
+   "d0": 17,
    "1": "Transparent Background",
    "b": {
     "a": [
@@ -868,7 +879,7 @@
  "20": false,
  "21": false,
  "29": true,
- "a2": 16,
+ "a2": 17,
  "l2": "",
  "m2": "",
  "n2": "",
