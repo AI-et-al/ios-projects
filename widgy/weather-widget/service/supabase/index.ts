@@ -55,12 +55,15 @@ Deno.serve(async (req: Request) => {
       isDay = wx.hourly.is_day[j] === 1;
       when = wx.hourly.time[j];
     } else {
-      const n = parseInt(m[2], 10);
-      const j = Math.min(n, wx.daily.time.length - 1);
-      // (daily branch: m[2] is the day count)
-      code = wx.daily.weather_code[j];
-      isDay = true; // daily forecast always uses day-variant icons
+      // Widgy convention (verified on-device): +1d = TODAY, +2d = tomorrow.
+      const n = parseInt(m[2], 10) - 1;
+      const j = Math.max(0, Math.min(n, wx.daily.time.length - 1));
       when = wx.daily.time[j];
+      // Prefer the 1pm hourly code for that day: Open-Meteo's daily code is
+      // the day's most severe condition, which overweights brief events.
+      const k = wx.hourly.time.indexOf(when + "T13:00");
+      code = k >= 0 ? wx.hourly.weather_code[k] : wx.daily.weather_code[j];
+      isDay = true; // daily rows always use day-variant icons
     }
 
     const cond = condition(code, isDay);

@@ -80,7 +80,7 @@ def scale_icon_layers(layers, s, counts):
 
 import re
 
-OFFSET_RE = re.compile(r"Weather 2 \(\+(\d[hd])\)")
+OFFSET_RE = re.compile(r"Weather 2 \((?:\+(\d[hd])|(Now))\)")
 
 
 def _frame_val(layer, key):
@@ -100,9 +100,10 @@ def convert_forecast_rows(layers, counts, in_rows=False):
         if not isinstance(layer, dict):
             continue
         here = in_rows or layer.get("s") in ("3 Hour Forecast", "3 Day Forecast")
-        if here and layer.get("z") == "4":
+        if layer.get("z") == "4":
             m = OFFSET_RE.fullmatch(layer.get("3", ""))
             if m:
+                offset = "now" if m.group(2) else m.group(1)
                 cx = _frame_val(layer, "b") + _frame_val(layer, "d") / 2
                 cy = _frame_val(layer, "c") + _frame_val(layer, "e") / 2
                 keep = {k: layer[k] for k in ("d0", "s") if k in layer}
@@ -112,7 +113,7 @@ def convert_forecast_rows(layers, counts, in_rows=False):
                 layer.update(frames)
                 layer["z"] = "5"
                 layer["1"] = "Web URL"
-                layer["2"] = ROWS_URL.format(offset=m.group(1))
+                layer["2"] = ROWS_URL.format(offset=offset)
                 _set_frame(layer, "d", ROW_ICON)
                 _set_frame(layer, "e", ROW_ICON)
                 _set_frame(layer, "b", cx - ROW_ICON / 2)

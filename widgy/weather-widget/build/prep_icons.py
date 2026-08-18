@@ -38,7 +38,7 @@ PICKS = {
     "sleet": ("1000031087", None),               # frosted
     "wind": ("1000031094", "dehaze"),
     "fog": ("1000031085", "dehaze"),
-    "cloudy": ("1000031069", "erase_sun"),       # frosted, derived
+    "cloudy": ("1000031096", "bare_cloud"),      # solid cloud, derived
     "partly-cloudy-day": ("1000031069", None),   # frosted
     "partly-cloudy-night": ("1000031112", None),
     "hail": ("1000031092", None),
@@ -76,6 +76,18 @@ def erase_sun(im: Image.Image) -> Image.Image:
     return Image.fromarray(px.astype("uint8"), "RGBA")
 
 
+def bare_cloud(im: Image.Image) -> Image.Image:
+    """Erase both the sun (warm hues) and the raindrops (cool blues),
+    leaving a bare opaque white cloud — reads clearly at row size where
+    the frosted derivative looked like a flat grey glyph."""
+    px = np.asarray(erase_sun(im).convert("RGBA")).astype(int)
+    r, g, b, a = px[..., 0], px[..., 1], px[..., 2], px[..., 3]
+    blue = (b - r > 25) & (b > 110)
+    a[blue] = 0
+    px[..., 3] = a
+    return Image.fromarray(px.astype("uint8"), "RGBA")
+
+
 def dehaze(im: Image.Image) -> Image.Image:
     """Remove the baked white card: keep saturated (beige) content and
     darker grey shadows, fade pure-white low-saturation pixels out."""
@@ -90,7 +102,8 @@ def dehaze(im: Image.Image) -> Image.Image:
     return Image.fromarray(px.astype("uint8"), "RGBA")
 
 
-TREATMENTS = {"erase_sun": erase_sun, "dehaze": dehaze, None: lambda im: im}
+TREATMENTS = {"erase_sun": erase_sun, "dehaze": dehaze,
+              "bare_cloud": bare_cloud, None: lambda im: im}
 
 
 def optical_normalize(images: dict) -> dict:
