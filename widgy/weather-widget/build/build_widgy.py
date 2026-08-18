@@ -36,9 +36,11 @@ NAME_NEW = "Simpl.weather 3D"
 RAW_BASE = "https://raw.githubusercontent.com/AI-et-al/ios-projects/{sha}/widgy/weather-widget/icons/hero/{cond}.png"
 
 
-ICON_SCALE_DEFAULT = 1.0  # hero box matches the original orb's 1400-unit
-                          # geometry; hero/ icons are content-tight so the
-                          # visible size finally matches the original.
+ICON_SCALE_DEFAULT = 0.72  # hero/ icons are content-tight hard shapes, but
+                           # the author's orb had soft falloff baked into its
+                           # file (~70% solid core). 0.72 of the 1400-unit box
+                           # puts our solid content where the original's core
+                           # sat; 1.0 reads as waaaay overkill (field-tested).
 
 # Forecast-row conversion (mockup B): the six Weather 2 (+Nh/+Nd) smart-symbol
 # layers become Web URL image layers served by the Supabase icon endpoint,
