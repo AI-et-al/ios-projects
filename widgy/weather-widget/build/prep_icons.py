@@ -20,8 +20,13 @@ import numpy as np
 HERE = Path(__file__).resolve().parent
 SRC = HERE.parent / "icons" / "src"
 OUT = HERE.parent / "icons" / "prepped"
+HERO = HERE.parent / "icons" / "hero"
 OUT_SIZE = 400
 MARGIN = 0.06  # fraction of the square edge
+# Hero variants fill the widget's 1400-unit custom-image box like the
+# original orb did: content-tight, no optical normalization.
+HERO_SIZE = 480
+HERO_MARGIN = 0.02
 
 # condition -> (source id, treatment), per icons/README.md curation
 # (frosted-first, transparency-clean sources only).
@@ -42,16 +47,17 @@ PICKS = {
 }
 
 
-def trim_pad_resize(im: Image.Image) -> Image.Image:
+def trim_pad_resize(im: Image.Image, margin: float = MARGIN,
+                    size: int = OUT_SIZE) -> Image.Image:
     im = im.convert("RGBA")
     a = np.asarray(im)[:, :, 3]
     ys, xs = np.where(a > 8)
     if len(xs):
         im = im.crop((xs.min(), ys.min(), xs.max() + 1, ys.max() + 1))
-    edge = int(max(im.size) * (1 + 2 * MARGIN))
+    edge = int(max(im.size) * (1 + 2 * margin))
     sq = Image.new("RGBA", (edge, edge), (0, 0, 0, 0))
     sq.paste(im, ((edge - im.width) // 2, (edge - im.height) // 2), im)
-    return sq.resize((OUT_SIZE, OUT_SIZE), Image.LANCZOS)
+    return sq.resize((size, size), Image.LANCZOS)
 
 
 def erase_sun(im: Image.Image) -> Image.Image:
@@ -114,20 +120,26 @@ def optical_normalize(images: dict) -> dict:
 
 
 def main():
-    OUT.mkdir(parents=True, exist_ok=True)
-    for old in OUT.glob("*.png"):
-        old.unlink()
-    images = {}
-    for cond, (src_id, treatment) in PICKS.items():
-        im = TREATMENTS[treatment](Image.open(SRC / f"{src_id}.png"))
-        images[cond] = trim_pad_resize(im)
-    images = optical_normalize(images)
+    for d in (OUT, HERO):
+        d.mkdir(parents=True, exist_ok=True)
+        for old in d.glob("*.png"):
+            old.unlink()
+    treated = {cond: TREATMENTS[t](Image.open(SRC / f"{src_id}.png"))
+               for cond, (src_id, t) in PICKS.items()}
+
+    images = optical_normalize(
+        {cond: trim_pad_resize(im) for cond, im in treated.items()})
     for cond, im in images.items():
         src_id, treatment = PICKS[cond]
         path = OUT / f"{cond}.png"
         im.save(path, optimize=True)
         note = f" ({treatment})" if treatment else ""
         print(f"{cond:22s} <- {src_id}{note}  {path.stat().st_size // 1024}KB")
+
+    for cond, im in treated.items():
+        hero = trim_pad_resize(im, margin=HERO_MARGIN, size=HERO_SIZE)
+        hero.save(HERO / f"{cond}.png", optimize=True)
+    print(f"hero variants: {len(treated)} at {HERO_SIZE}px, margin {HERO_MARGIN}")
 
 
 if __name__ == "__main__":

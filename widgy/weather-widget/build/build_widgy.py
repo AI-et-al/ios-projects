@@ -33,10 +33,12 @@ DIST = WW / "dist"
 
 FONT_OLD, FONT_NEW = "System Bold", "Numans-Regular"
 NAME_NEW = "Simpl.weather 3D"
-RAW_BASE = "https://raw.githubusercontent.com/AI-et-al/ios-projects/{sha}/widgy/weather-widget/icons/prepped/{cond}.png"
+RAW_BASE = "https://raw.githubusercontent.com/AI-et-al/ios-projects/{sha}/widgy/weather-widget/icons/hero/{cond}.png"
 
 
-ICON_SCALE_DEFAULT = 0.62
+ICON_SCALE_DEFAULT = 1.0  # hero box matches the original orb's 1400-unit
+                          # geometry; hero/ icons are content-tight so the
+                          # visible size finally matches the original.
 
 # Forecast-row conversion (mockup B): the six Weather 2 (+Nh/+Nd) smart-symbol
 # layers become Web URL image layers served by the Supabase icon endpoint,
@@ -163,7 +165,7 @@ def main():
     for slot, cond in slot_map.items():
         if cond is None:
             continue
-        icon = WW / "icons" / "prepped" / f"{cond}.png"
+        icon = WW / "icons" / "hero" / f"{cond}.png"
         if not icon.exists():
             sys.exit(f"missing prepped icon for {cond}")
         doc[slot] = RAW_BASE.format(sha=sha, cond=cond)
