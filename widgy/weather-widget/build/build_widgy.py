@@ -38,6 +38,16 @@ RAW_BASE = "https://raw.githubusercontent.com/AI-et-al/ios-projects/{sha}/widgy/
 
 ICON_SCALE_DEFAULT = 0.62
 
+# Forecast-row conversion (mockup B): the six Weather 2 (+Nh/+Nd) smart-symbol
+# layers become Web URL image layers served by the Supabase icon endpoint,
+# discovered via a reference export: z:"5", "1":"Web URL", "2":"<url>".
+ROWS_URL = "https://cusyejearwlwbqeabspa.supabase.co/functions/v1/icon?offset={offset}"
+ROW_ICON = 210    # square icon edge, canvas units (was ~200x160 / ~163x173)
+ROW_TEXT_SCALE = 0.84  # shrink row labels & temps so icons get room
+
+# Coordinate convention (confirmed via reference export + originals):
+# b = x, c = y, d = width, e = height.
+
 
 def scale_icon_layers(layers, s, counts):
     """Shrink Weather (Custom Images) layers around their own center."""
@@ -45,7 +55,7 @@ def scale_icon_layers(layers, s, counts):
         if not isinstance(layer, dict):
             continue
         if layer.get("z") == "5" and layer.get("1") == "Weather (Custom Images)":
-            for pos_key, size_key in (("c", "d"), ("b", "e")):
+            for pos_key, size_key in (("b", "d"), ("c", "e")):
                 size_entries = (layer.get(size_key) or {}).get("a") or []
                 pos_entries = (layer.get(pos_key) or {}).get("a") or []
                 if not size_entries:
@@ -60,6 +70,60 @@ def scale_icon_layers(layers, s, counts):
         kids = layer.get("1")
         if isinstance(kids, list):
             scale_icon_layers(kids, s, counts)
+
+
+import re
+
+OFFSET_RE = re.compile(r"Weather 2 \(\+(\d[hd])\)")
+
+
+def _frame_val(layer, key):
+    entries = (layer.get(key) or {}).get("a") or []
+    return entries[0]["a"] if entries else None
+
+
+def _set_frame(layer, key, value):
+    for entry in (layer.get(key) or {}).get("a") or []:
+        entry["a"] = value
+
+
+def convert_forecast_rows(layers, counts, in_rows=False):
+    """Inside the two forecast groups: smart-symbol layers -> Web URL image
+    layers (center preserved, ROW_ICON square); text layers shrink."""
+    for layer in layers:
+        if not isinstance(layer, dict):
+            continue
+        here = in_rows or layer.get("s") in ("3 Hour Forecast", "3 Day Forecast")
+        if here and layer.get("z") == "4":
+            m = OFFSET_RE.fullmatch(layer.get("3", ""))
+            if m:
+                cx = _frame_val(layer, "b") + _frame_val(layer, "d") / 2
+                cy = _frame_val(layer, "c") + _frame_val(layer, "e") / 2
+                keep = {k: layer[k] for k in ("d0", "s") if k in layer}
+                frames = {k: layer[k] for k in ("b", "c", "d", "e") if k in layer}
+                layer.clear()
+                layer.update(keep)
+                layer.update(frames)
+                layer["z"] = "5"
+                layer["1"] = "Web URL"
+                layer["2"] = ROWS_URL.format(offset=m.group(1))
+                _set_frame(layer, "d", ROW_ICON)
+                _set_frame(layer, "e", ROW_ICON)
+                _set_frame(layer, "b", cx - ROW_ICON / 2)
+                _set_frame(layer, "c", cy - ROW_ICON / 2)
+                counts["row-icons"] += 1
+        elif here and layer.get("z") == "1":
+            old_h = _frame_val(layer, "e")
+            if old_h:
+                _set_frame(layer, "e", old_h * ROW_TEXT_SCALE)
+                _set_frame(layer, "c",
+                           _frame_val(layer, "c") + old_h * (1 - ROW_TEXT_SCALE) / 2)
+            if isinstance(layer.get("h"), dict):
+                _set_frame(layer, "h", (_frame_val(layer, "h") or 0) * ROW_TEXT_SCALE)
+            counts["row-text"] += 1
+        kids = layer.get("1")
+        if isinstance(kids, list):
+            convert_forecast_rows(kids, counts, here)
 
 
 def swap_fonts(layers, counts):
@@ -88,9 +152,11 @@ def main():
     slot_map = {k: v for k, v in json.loads((HERE / "slot-map.json").read_text()).items()
                 if not k.startswith("_")}
 
-    counts = {"layer-font": 0, "field-font": 0, "slots": 0, "icon-layers": 0}
+    counts = {"layer-font": 0, "field-font": 0, "slots": 0, "icon-layers": 0,
+              "row-icons": 0, "row-text": 0}
     swap_fonts(doc["1"], counts)
     scale_icon_layers(doc["1"], scale, counts)
+    convert_forecast_rows(doc["1"], counts)
 
     for slot, cond in slot_map.items():
         if cond is None:
@@ -118,6 +184,8 @@ def main():
     print(f"fonts swapped: {counts['layer-font']} layer + {counts['field-font']} field")
     print(f"image slots repointed: {counts['slots']} (pinned to {sha[:12]})")
     print(f"icon layers rescaled: {counts['icon-layers']} at scale {scale}")
+    print(f"forecast rows: {counts['row-icons']} icons -> Web URL, "
+          f"{counts['row-text']} text layers shrunk x{ROW_TEXT_SCALE}")
     print(f"wrote {out.name}: {out.stat().st_size} bytes "
           f"(json {len(payload)} bytes), round-trip OK")
 
