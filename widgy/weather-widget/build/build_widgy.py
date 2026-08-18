@@ -42,7 +42,9 @@ ICON_SCALE_DEFAULT = 0.62
 # layers become Web URL image layers served by the Supabase icon endpoint,
 # discovered via a reference export: z:"5", "1":"Web URL", "2":"<url>".
 ROWS_URL = "https://cusyejearwlwbqeabspa.supabase.co/functions/v1/icon?offset={offset}"
-ROW_ICON = 210    # square icon edge, canvas units (was ~200x160 / ~163x173)
+ROW_ICON = 270    # square icon edge, canvas units. The prepped PNGs carry
+                  # padding + optical-normalization shrink, so visible content
+                  # is roughly 55-75% of this box; 270 lands near mockup B.
 ROW_TEXT_SCALE = 0.84  # shrink row labels & temps so icons get room
 
 # Coordinate convention (confirmed via reference export + originals):
