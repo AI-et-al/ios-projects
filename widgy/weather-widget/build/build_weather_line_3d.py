@@ -18,9 +18,9 @@ FONT = "Numans-Regular"
 STATE = 646
 SERVICE = "https://cusyejearwlwbqeabspa.supabase.co/functions/v1/icon?offset={o}"
 
-COL_X = (260, 640, 1020, 1400)   # column centers
-TEMP_Y = (420, 530, 640, 750)    # staircase: static downward stagger
-ICON = 210
+COL_X = (230, 610, 990, 1370)    # column centers
+TEMP_Y = (300, 420, 540, 660)    # staircase: static downward stagger
+ICON = 300                        # Miniiii-scale: ~3x the temp text height
 
 _d0 = iter(range(1, 200))
 
@@ -33,11 +33,13 @@ def frame(x, y, w, h):
     return {"b": V(x), "c": V(y), "d": V(w), "e": V(h)}
 
 
-def text(x, y, w, h, fields, color="uicol_white-100", name=None):
+def text(x, y, w, h, fields, color="uicol_white-100", name=None, fmt=None):
     L = {"z": "1", "d0": next(_d0), "1": FONT, "f": color, **frame(x, y, w, h),
          "66": [{"34": FONT, **f} for f in fields]}
     if name:
         L["s"] = name
+    if fmt is not None:  # number-format key from the original export;
+        L["8"] = V(fmt)  # suppresses the unit suffix (no more 107°F°)
     return L
 
 
@@ -64,34 +66,31 @@ def main():
         text(1000, 95, 530, 85,
              [t("↑"), wnow("Max. Temperature Today"), t("°  "),
               t("↓"), wnow("Min. Temperature Today"), t("°")],
-             "uicol_white-50", "Hi-Lo"),
+             "uicol_white-50", "Hi-Lo", fmt=2),
     ]
     # staircase columns: temp over live icon
     for i, (cx, ty) in enumerate(zip(COL_X, TEMP_Y), start=1):
         layers += [
-            text(cx - 160, ty, 320, 100,
+            text(cx - 160, ty, 320, 95,
                  [{"5": "Weather (Hourly)",
                    "6": f"+{i}h - Temperature (Always In F°)"}, t("°")],
-                 name=f"+{i}h temp"),
+                 name=f"+{i}h temp", fmt=2),
             {"z": "5", "d0": next(_d0), "s": f"+{i}h icon",
              "1": "Web URL", "2": SERVICE.format(o=f"{i}h"),
-             **frame(cx - ICON / 2, ty + 110, ICON, ICON)},
+             **frame(cx - ICON / 2, ty + 105, ICON, ICON)},
         ]
-    # hour axis band + labels
-    layers.append({"z": "2", "d0": next(_d0), "s": "Axis band",
-                   "g": "uicol_black-100", "f0": V(0),
-                   **frame(0, 1130, 1600, 95)})
+    # hour labels straight on the card (dark Weather Line style)
     for i, cx in enumerate(COL_X, start=1):
         layers.append(
-            text(cx - 150, 1140, 300, 75,
+            text(cx - 150, 1130, 300, 75,
                  [{"5": "Javascript", "6": "Script",
                    "10": hour_js.replace("{N}", str(i))}],
-                 "uicol_white-70", f"+{i}h hour"))
+                 "uicol_white-50", f"+{i}h hour"))
     layers += [
         text(150, 1265, 1300, 85,
              [t("Feels like "), wnow("Feels Like Temperature (Always In F°)"),
-              t("°")], "uicol_white-50", "Footer"),
-        {"z": "2", "d0": next(_d0), "s": "Card", "g": "uicol_black-85",
+              t("°")], "uicol_white-50", "Footer", fmt=2),
+        {"z": "2", "d0": next(_d0), "s": "Card", "g": "uicol_black-100",
          "f0": V(10), **frame(0, 0, 1600, 1600)},
         {"z": "5", "d0": next(_d0), "1": "Transparent Background",
          **frame(0, 0, 1600, 1600)},

@@ -58,11 +58,13 @@ def frame(x, y, w, h):
     return {"b": V(x), "c": V(y), "d": V(w), "e": V(h)}
 
 
-def text(x, y, w, h, fields, color="uicol_white-100", name=None):
+def text(x, y, w, h, fields, color="uicol_white-100", name=None, fmt=None):
     L = {"z": "1", "d0": next(_d0), "1": FONT, "f": color, **frame(x, y, w, h),
          "66": [{"34": FONT, **f} for f in fields]}
     if name:
         L["s"] = name
+    if fmt is not None:  # number-format key from the original export;
+        L["8"] = V(fmt)  # suppresses the unit suffix (no more 107°F°)
     return L
 
 
@@ -78,8 +80,8 @@ def main():
         # top block: temp | divider | dominant hero
         text(40, 250, 580, TEMP_H,
              [{"5": "Weather (Now)", "6": "Temperature (Always In F°)"},
-              t("°")], name="Temp now"),
-        {"z": "2", "d0": next(_d0), "s": "Divider", "g": "uicol_white-25",
+              t("°")], name="Temp now", fmt=1),
+        {"z": "2", "d0": next(_d0), "s": "Divider", "g": "uicol_white-50",
          "f0": V(3), **frame(668, 180, 6, 440)},
         {"z": "5", "d0": next(_d0), "s": "Hero",
          "1": "Weather (Custom Images)", "2": "Symbol",
@@ -96,11 +98,11 @@ def main():
             text(1140, cy - ROW_TEMP_H / 2, 390, ROW_TEMP_H,
                  [{"5": "Weather (Hourly)",
                    "6": f"+{i}h - Temperature (Always In F°)"}, t("°")],
-                 name=f"+{i}h temp"),
+                 name=f"+{i}h temp", fmt=2),
         ]
     layers += [
         # near-solid dark card; wallpaper whispers through
-        {"z": "2", "d0": next(_d0), "s": "Card", "g": "uicol_black-85",
+        {"z": "2", "d0": next(_d0), "s": "Card", "g": "uicol_black-100",
          "f0": V(10), **frame(0, 0, 1600, 1600)},
         # bottommost: wallpaper slice
         {"z": "5", "d0": next(_d0), "1": "Transparent Background",
