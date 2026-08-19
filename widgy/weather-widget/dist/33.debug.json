@@ -1,0 +1,768 @@
+{
+ "3": "33",
+ "4": "Now + next 3 hours, icon-forward. A fork of ideas from DeSolarised (Zooropalg), Weather Line (PC), and DschubbaLokki, with the 3dweather icon set, Numans, and live per-hour icons.",
+ "5": "AI et al.",
+ "1": [
+  {
+   "z": "11",
+   "d0": 1,
+   "4a": "openURL_weather://",
+   "b": {
+    "a": [
+     {
+      "a": 0,
+      "b": 646
+     }
+    ],
+    "b": 0
+   },
+   "c": {
+    "a": [
+     {
+      "a": 0,
+      "b": 646
+     }
+    ],
+    "b": 0
+   },
+   "d": {
+    "a": [
+     {
+      "a": 1600,
+      "b": 646
+     }
+    ],
+    "b": 0
+   },
+   "e": {
+    "a": [
+     {
+      "a": 1600,
+      "b": 646
+     }
+    ],
+    "b": 0
+   }
+  },
+  {
+   "z": "1",
+   "d0": 2,
+   "1": "Numans-Regular",
+   "f": "uicol_white-100",
+   "b": {
+    "a": [
+     {
+      "a": 40,
+      "b": 646
+     }
+    ],
+    "b": 0
+   },
+   "c": {
+    "a": [
+     {
+      "a": 250,
+      "b": 646
+     }
+    ],
+    "b": 0
+   },
+   "d": {
+    "a": [
+     {
+      "a": 580,
+      "b": 646
+     }
+    ],
+    "b": 0
+   },
+   "e": {
+    "a": [
+     {
+      "a": 300,
+      "b": 646
+     }
+    ],
+    "b": 0
+   },
+   "66": [
+    {
+     "34": "Numans-Regular",
+     "5": "Weather (Now)",
+     "6": "Temperature"
+    },
+    {
+     "34": "Numans-Regular",
+     "5": "Custom Text",
+     "6": "Text",
+     "25": "°"
+    }
+   ],
+   "s": "Temp now"
+  },
+  {
+   "z": "2",
+   "d0": 3,
+   "s": "Divider",
+   "g": "uicol_white-50",
+   "f0": {
+    "a": [
+     {
+      "a": 3,
+      "b": 646
+     }
+    ],
+    "b": 0
+   },
+   "b": {
+    "a": [
+     {
+      "a": 668,
+      "b": 646
+     }
+    ],
+    "b": 0
+   },
+   "c": {
+    "a": [
+     {
+      "a": 180,
+      "b": 646
+     }
+    ],
+    "b": 0
+   },
+   "d": {
+    "a": [
+     {
+      "a": 6,
+      "b": 646
+     }
+    ],
+    "b": 0
+   },
+   "e": {
+    "a": [
+     {
+      "a": 440,
+      "b": 646
+     }
+    ],
+    "b": 0
+   }
+  },
+  {
+   "z": "5",
+   "d0": 4,
+   "s": "Hero",
+   "1": "Weather (Custom Images)",
+   "2": "Symbol",
+   "b": {
+    "a": [
+     {
+      "a": 760,
+      "b": 646
+     }
+    ],
+    "b": 0
+   },
+   "c": {
+    "a": [
+     {
+      "a": 80,
+      "b": 646
+     }
+    ],
+    "b": 0
+   },
+   "d": {
+    "a": [
+     {
+      "a": 640,
+      "b": 646
+     }
+    ],
+    "b": 0
+   },
+   "e": {
+    "a": [
+     {
+      "a": 640,
+      "b": 646
+     }
+    ],
+    "b": 0
+   }
+  },
+  {
+   "z": "1",
+   "d0": 5,
+   "1": "Numans-Regular",
+   "f": "uicol_white-50",
+   "b": {
+    "a": [
+     {
+      "a": 90,
+      "b": 646
+     }
+    ],
+    "b": 0
+   },
+   "c": {
+    "a": [
+     {
+      "a": 885.0,
+      "b": 646
+     }
+    ],
+    "b": 0
+   },
+   "d": {
+    "a": [
+     {
+      "a": 280,
+      "b": 646
+     }
+    ],
+    "b": 0
+   },
+   "e": {
+    "a": [
+     {
+      "a": 90,
+      "b": 646
+     }
+    ],
+    "b": 0
+   },
+   "66": [
+    {
+     "34": "Numans-Regular",
+     "5": "Custom Text",
+     "6": "Text",
+     "25": "+1h"
+    }
+   ],
+   "s": "+1h label"
+  },
+  {
+   "z": "5",
+   "d0": 6,
+   "s": "+1h icon",
+   "1": "Web URL",
+   "2": "https://cusyejearwlwbqeabspa.supabase.co/functions/v1/icon?offset=1h",
+   "b": {
+    "a": [
+     {
+      "a": 675.0,
+      "b": 646
+     }
+    ],
+    "b": 0
+   },
+   "c": {
+    "a": [
+     {
+      "a": 805.0,
+      "b": 646
+     }
+    ],
+    "b": 0
+   },
+   "d": {
+    "a": [
+     {
+      "a": 250,
+      "b": 646
+     }
+    ],
+    "b": 0
+   },
+   "e": {
+    "a": [
+     {
+      "a": 250,
+      "b": 646
+     }
+    ],
+    "b": 0
+   }
+  },
+  {
+   "z": "1",
+   "d0": 7,
+   "1": "Numans-Regular",
+   "f": "uicol_white-100",
+   "b": {
+    "a": [
+     {
+      "a": 1140,
+      "b": 646
+     }
+    ],
+    "b": 0
+   },
+   "c": {
+    "a": [
+     {
+      "a": 865.0,
+      "b": 646
+     }
+    ],
+    "b": 0
+   },
+   "d": {
+    "a": [
+     {
+      "a": 390,
+      "b": 646
+     }
+    ],
+    "b": 0
+   },
+   "e": {
+    "a": [
+     {
+      "a": 130,
+      "b": 646
+     }
+    ],
+    "b": 0
+   },
+   "66": [
+    {
+     "34": "Numans-Regular",
+     "5": "Weather (Hourly)",
+     "6": "+1h - Temperature"
+    },
+    {
+     "34": "Numans-Regular",
+     "5": "Custom Text",
+     "6": "Text",
+     "25": "°"
+    }
+   ],
+   "s": "+1h temp"
+  },
+  {
+   "z": "1",
+   "d0": 8,
+   "1": "Numans-Regular",
+   "f": "uicol_white-50",
+   "b": {
+    "a": [
+     {
+      "a": 90,
+      "b": 646
+     }
+    ],
+    "b": 0
+   },
+   "c": {
+    "a": [
+     {
+      "a": 1145.0,
+      "b": 646
+     }
+    ],
+    "b": 0
+   },
+   "d": {
+    "a": [
+     {
+      "a": 280,
+      "b": 646
+     }
+    ],
+    "b": 0
+   },
+   "e": {
+    "a": [
+     {
+      "a": 90,
+      "b": 646
+     }
+    ],
+    "b": 0
+   },
+   "66": [
+    {
+     "34": "Numans-Regular",
+     "5": "Custom Text",
+     "6": "Text",
+     "25": "+2h"
+    }
+   ],
+   "s": "+2h label"
+  },
+  {
+   "z": "5",
+   "d0": 9,
+   "s": "+2h icon",
+   "1": "Web URL",
+   "2": "https://cusyejearwlwbqeabspa.supabase.co/functions/v1/icon?offset=2h",
+   "b": {
+    "a": [
+     {
+      "a": 675.0,
+      "b": 646
+     }
+    ],
+    "b": 0
+   },
+   "c": {
+    "a": [
+     {
+      "a": 1065.0,
+      "b": 646
+     }
+    ],
+    "b": 0
+   },
+   "d": {
+    "a": [
+     {
+      "a": 250,
+      "b": 646
+     }
+    ],
+    "b": 0
+   },
+   "e": {
+    "a": [
+     {
+      "a": 250,
+      "b": 646
+     }
+    ],
+    "b": 0
+   }
+  },
+  {
+   "z": "1",
+   "d0": 10,
+   "1": "Numans-Regular",
+   "f": "uicol_white-100",
+   "b": {
+    "a": [
+     {
+      "a": 1140,
+      "b": 646
+     }
+    ],
+    "b": 0
+   },
+   "c": {
+    "a": [
+     {
+      "a": 1125.0,
+      "b": 646
+     }
+    ],
+    "b": 0
+   },
+   "d": {
+    "a": [
+     {
+      "a": 390,
+      "b": 646
+     }
+    ],
+    "b": 0
+   },
+   "e": {
+    "a": [
+     {
+      "a": 130,
+      "b": 646
+     }
+    ],
+    "b": 0
+   },
+   "66": [
+    {
+     "34": "Numans-Regular",
+     "5": "Weather (Hourly)",
+     "6": "+2h - Temperature"
+    },
+    {
+     "34": "Numans-Regular",
+     "5": "Custom Text",
+     "6": "Text",
+     "25": "°"
+    }
+   ],
+   "s": "+2h temp"
+  },
+  {
+   "z": "1",
+   "d0": 11,
+   "1": "Numans-Regular",
+   "f": "uicol_white-50",
+   "b": {
+    "a": [
+     {
+      "a": 90,
+      "b": 646
+     }
+    ],
+    "b": 0
+   },
+   "c": {
+    "a": [
+     {
+      "a": 1405.0,
+      "b": 646
+     }
+    ],
+    "b": 0
+   },
+   "d": {
+    "a": [
+     {
+      "a": 280,
+      "b": 646
+     }
+    ],
+    "b": 0
+   },
+   "e": {
+    "a": [
+     {
+      "a": 90,
+      "b": 646
+     }
+    ],
+    "b": 0
+   },
+   "66": [
+    {
+     "34": "Numans-Regular",
+     "5": "Custom Text",
+     "6": "Text",
+     "25": "+3h"
+    }
+   ],
+   "s": "+3h label"
+  },
+  {
+   "z": "5",
+   "d0": 12,
+   "s": "+3h icon",
+   "1": "Web URL",
+   "2": "https://cusyejearwlwbqeabspa.supabase.co/functions/v1/icon?offset=3h",
+   "b": {
+    "a": [
+     {
+      "a": 675.0,
+      "b": 646
+     }
+    ],
+    "b": 0
+   },
+   "c": {
+    "a": [
+     {
+      "a": 1325.0,
+      "b": 646
+     }
+    ],
+    "b": 0
+   },
+   "d": {
+    "a": [
+     {
+      "a": 250,
+      "b": 646
+     }
+    ],
+    "b": 0
+   },
+   "e": {
+    "a": [
+     {
+      "a": 250,
+      "b": 646
+     }
+    ],
+    "b": 0
+   }
+  },
+  {
+   "z": "1",
+   "d0": 13,
+   "1": "Numans-Regular",
+   "f": "uicol_white-100",
+   "b": {
+    "a": [
+     {
+      "a": 1140,
+      "b": 646
+     }
+    ],
+    "b": 0
+   },
+   "c": {
+    "a": [
+     {
+      "a": 1385.0,
+      "b": 646
+     }
+    ],
+    "b": 0
+   },
+   "d": {
+    "a": [
+     {
+      "a": 390,
+      "b": 646
+     }
+    ],
+    "b": 0
+   },
+   "e": {
+    "a": [
+     {
+      "a": 130,
+      "b": 646
+     }
+    ],
+    "b": 0
+   },
+   "66": [
+    {
+     "34": "Numans-Regular",
+     "5": "Weather (Hourly)",
+     "6": "+3h - Temperature"
+    },
+    {
+     "34": "Numans-Regular",
+     "5": "Custom Text",
+     "6": "Text",
+     "25": "°"
+    }
+   ],
+   "s": "+3h temp"
+  },
+  {
+   "z": "2",
+   "d0": 14,
+   "s": "Card",
+   "g": "uicol_black-100",
+   "f0": {
+    "a": [
+     {
+      "a": 10,
+      "b": 646
+     }
+    ],
+    "b": 0
+   },
+   "b": {
+    "a": [
+     {
+      "a": 0,
+      "b": 646
+     }
+    ],
+    "b": 0
+   },
+   "c": {
+    "a": [
+     {
+      "a": 0,
+      "b": 646
+     }
+    ],
+    "b": 0
+   },
+   "d": {
+    "a": [
+     {
+      "a": 1600,
+      "b": 646
+     }
+    ],
+    "b": 0
+   },
+   "e": {
+    "a": [
+     {
+      "a": 1600,
+      "b": 646
+     }
+    ],
+    "b": 0
+   }
+  },
+  {
+   "z": "5",
+   "d0": 15,
+   "1": "Transparent Background",
+   "b": {
+    "a": [
+     {
+      "a": 0,
+      "b": 646
+     }
+    ],
+    "b": 0
+   },
+   "c": {
+    "a": [
+     {
+      "a": 0,
+      "b": 646
+     }
+    ],
+    "b": 0
+   },
+   "d": {
+    "a": [
+     {
+      "a": 1600,
+      "b": 646
+     }
+    ],
+    "b": 0
+   },
+   "e": {
+    "a": [
+     {
+      "a": 1600,
+      "b": 646
+     }
+    ],
+    "b": 0
+   }
+  }
+ ],
+ "0": 27,
+ "6": 2,
+ "9": 33,
+ "10": true,
+ "20": false,
+ "21": false,
+ "29": true,
+ "a2": 15,
+ "l2": "",
+ "m2": "",
+ "n2": "",
+ "o2": "",
+ "p2": "",
+ "q2": "",
+ "zzz": "",
+ "f3": "https://raw.githubusercontent.com/AI-et-al/ios-projects/18c0c465d14150b5f12a731d2b20ca96a55027c1/widgy/weather-widget/icons/hero/clear-day.png",
+ "g3": "https://raw.githubusercontent.com/AI-et-al/ios-projects/18c0c465d14150b5f12a731d2b20ca96a55027c1/widgy/weather-widget/icons/hero/clear-night.png",
+ "h3": "https://raw.githubusercontent.com/AI-et-al/ios-projects/18c0c465d14150b5f12a731d2b20ca96a55027c1/widgy/weather-widget/icons/hero/rain.png",
+ "i3": "https://raw.githubusercontent.com/AI-et-al/ios-projects/18c0c465d14150b5f12a731d2b20ca96a55027c1/widgy/weather-widget/icons/hero/snow.png",
+ "j3": "https://raw.githubusercontent.com/AI-et-al/ios-projects/18c0c465d14150b5f12a731d2b20ca96a55027c1/widgy/weather-widget/icons/hero/sleet.png",
+ "k3": "https://raw.githubusercontent.com/AI-et-al/ios-projects/18c0c465d14150b5f12a731d2b20ca96a55027c1/widgy/weather-widget/icons/hero/wind.png",
+ "l3": "https://raw.githubusercontent.com/AI-et-al/ios-projects/18c0c465d14150b5f12a731d2b20ca96a55027c1/widgy/weather-widget/icons/hero/fog.png",
+ "m3": "https://raw.githubusercontent.com/AI-et-al/ios-projects/18c0c465d14150b5f12a731d2b20ca96a55027c1/widgy/weather-widget/icons/hero/cloudy.png",
+ "n3": "https://raw.githubusercontent.com/AI-et-al/ios-projects/18c0c465d14150b5f12a731d2b20ca96a55027c1/widgy/weather-widget/icons/hero/partly-cloudy-day.png",
+ "o3": "https://raw.githubusercontent.com/AI-et-al/ios-projects/18c0c465d14150b5f12a731d2b20ca96a55027c1/widgy/weather-widget/icons/hero/partly-cloudy-night.png",
+ "p3": "https://raw.githubusercontent.com/AI-et-al/ios-projects/18c0c465d14150b5f12a731d2b20ca96a55027c1/widgy/weather-widget/icons/hero/hail.png",
+ "q3": "https://raw.githubusercontent.com/AI-et-al/ios-projects/18c0c465d14150b5f12a731d2b20ca96a55027c1/widgy/weather-widget/icons/hero/thunderstorm.png",
+ "r3": "https://raw.githubusercontent.com/AI-et-al/ios-projects/18c0c465d14150b5f12a731d2b20ca96a55027c1/widgy/weather-widget/icons/hero/tornado.png"
+}

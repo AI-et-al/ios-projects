@@ -1,0 +1,756 @@
+{
+ "3": "Weather Line 3D",
+ "4": "Big temp, three hours on a staircase, photo backdrop — a synthesis of Weather Line (PC), iWeather 2 (Chad Widgy Prouducer), and DeSolarised (Zooropalg), with the 3dweather icon set, Numans, and live per-hour icons.",
+ "5": "AI et al.",
+ "1": [
+  {
+   "z": "11",
+   "d0": 1,
+   "4a": "openURL_weather://",
+   "b": {
+    "a": [
+     {
+      "a": 0,
+      "b": 646
+     }
+    ],
+    "b": 0
+   },
+   "c": {
+    "a": [
+     {
+      "a": 0,
+      "b": 646
+     }
+    ],
+    "b": 0
+   },
+   "d": {
+    "a": [
+     {
+      "a": 1600,
+      "b": 646
+     }
+    ],
+    "b": 0
+   },
+   "e": {
+    "a": [
+     {
+      "a": 1600,
+      "b": 646
+     }
+    ],
+    "b": 0
+   }
+  },
+  {
+   "z": "1",
+   "d0": 2,
+   "1": "Numans-Regular",
+   "f": "uicol_white-100",
+   "b": {
+    "a": [
+     {
+      "a": 50,
+      "b": 646
+     }
+    ],
+    "b": 0
+   },
+   "c": {
+    "a": [
+     {
+      "a": 90,
+      "b": 646
+     }
+    ],
+    "b": 0
+   },
+   "d": {
+    "a": [
+     {
+      "a": 760,
+      "b": 646
+     }
+    ],
+    "b": 0
+   },
+   "e": {
+    "a": [
+     {
+      "a": 400,
+      "b": 646
+     }
+    ],
+    "b": 0
+   },
+   "66": [
+    {
+     "34": "Numans-Regular",
+     "5": "Weather (Now)",
+     "6": "Temperature"
+    },
+    {
+     "34": "Numans-Regular",
+     "5": "Custom Text",
+     "6": "Text",
+     "25": "°"
+    }
+   ],
+   "s": "Temp now"
+  },
+  {
+   "z": "4",
+   "d0": 3,
+   "s": "Pin",
+   "3": "location.fill",
+   "1": 1,
+   "f": "uicol_white-100",
+   "b": {
+    "a": [
+     {
+      "a": 1120,
+      "b": 646
+     }
+    ],
+    "b": 0
+   },
+   "c": {
+    "a": [
+     {
+      "a": 135,
+      "b": 646
+     }
+    ],
+    "b": 0
+   },
+   "d": {
+    "a": [
+     {
+      "a": 85,
+      "b": 646
+     }
+    ],
+    "b": 0
+   },
+   "e": {
+    "a": [
+     {
+      "a": 95,
+      "b": 646
+     }
+    ],
+    "b": 0
+   }
+  },
+  {
+   "z": "1",
+   "d0": 4,
+   "1": "Numans-Regular",
+   "f": "uicol_white-100",
+   "b": {
+    "a": [
+     {
+      "a": 1215,
+      "b": 646
+     }
+    ],
+    "b": 0
+   },
+   "c": {
+    "a": [
+     {
+      "a": 120,
+      "b": 646
+     }
+    ],
+    "b": 0
+   },
+   "d": {
+    "a": [
+     {
+      "a": 340,
+      "b": 646
+     }
+    ],
+    "b": 0
+   },
+   "e": {
+    "a": [
+     {
+      "a": 115,
+      "b": 646
+     }
+    ],
+    "b": 0
+   },
+   "66": [
+    {
+     "34": "Numans-Regular",
+     "5": "Location",
+     "6": "City"
+    }
+   ],
+   "s": "City"
+  },
+  {
+   "z": "1",
+   "d0": 5,
+   "1": "Numans-Regular",
+   "f": "uicol_white-50",
+   "b": {
+    "a": [
+     {
+      "a": 70,
+      "b": 646
+     }
+    ],
+    "b": 0
+   },
+   "c": {
+    "a": [
+     {
+      "a": 500,
+      "b": 646
+     }
+    ],
+    "b": 0
+   },
+   "d": {
+    "a": [
+     {
+      "a": 800,
+      "b": 646
+     }
+    ],
+    "b": 0
+   },
+   "e": {
+    "a": [
+     {
+      "a": 110,
+      "b": 646
+     }
+    ],
+    "b": 0
+   },
+   "66": [
+    {
+     "34": "Numans-Regular",
+     "5": "Weather (Now)",
+     "6": "Status (Simple)"
+    }
+   ],
+   "s": "Condition"
+  },
+  {
+   "z": "1",
+   "d0": 6,
+   "1": "Numans-Regular",
+   "f": "uicol_white-100",
+   "b": {
+    "a": [
+     {
+      "a": 110,
+      "b": 646
+     }
+    ],
+    "b": 0
+   },
+   "c": {
+    "a": [
+     {
+      "a": 650,
+      "b": 646
+     }
+    ],
+    "b": 0
+   },
+   "d": {
+    "a": [
+     {
+      "a": 380,
+      "b": 646
+     }
+    ],
+    "b": 0
+   },
+   "e": {
+    "a": [
+     {
+      "a": 170,
+      "b": 646
+     }
+    ],
+    "b": 0
+   },
+   "66": [
+    {
+     "34": "Numans-Regular",
+     "5": "Weather (Hourly)",
+     "6": "+1h - Temperature"
+    },
+    {
+     "34": "Numans-Regular",
+     "5": "Custom Text",
+     "6": "Text",
+     "25": "°"
+    }
+   ],
+   "s": "+1h temp"
+  },
+  {
+   "z": "5",
+   "d0": 7,
+   "s": "+1h icon",
+   "1": "Web URL",
+   "2": "https://cusyejearwlwbqeabspa.supabase.co/functions/v1/icon?offset=1h",
+   "b": {
+    "a": [
+     {
+      "a": 155.0,
+      "b": 646
+     }
+    ],
+    "b": 0
+   },
+   "c": {
+    "a": [
+     {
+      "a": 830,
+      "b": 646
+     }
+    ],
+    "b": 0
+   },
+   "d": {
+    "a": [
+     {
+      "a": 290,
+      "b": 646
+     }
+    ],
+    "b": 0
+   },
+   "e": {
+    "a": [
+     {
+      "a": 290,
+      "b": 646
+     }
+    ],
+    "b": 0
+   }
+  },
+  {
+   "z": "1",
+   "d0": 8,
+   "1": "Numans-Regular",
+   "f": "uicol_white-100",
+   "b": {
+    "a": [
+     {
+      "a": 610,
+      "b": 646
+     }
+    ],
+    "b": 0
+   },
+   "c": {
+    "a": [
+     {
+      "a": 760,
+      "b": 646
+     }
+    ],
+    "b": 0
+   },
+   "d": {
+    "a": [
+     {
+      "a": 380,
+      "b": 646
+     }
+    ],
+    "b": 0
+   },
+   "e": {
+    "a": [
+     {
+      "a": 170,
+      "b": 646
+     }
+    ],
+    "b": 0
+   },
+   "66": [
+    {
+     "34": "Numans-Regular",
+     "5": "Weather (Hourly)",
+     "6": "+2h - Temperature"
+    },
+    {
+     "34": "Numans-Regular",
+     "5": "Custom Text",
+     "6": "Text",
+     "25": "°"
+    }
+   ],
+   "s": "+2h temp"
+  },
+  {
+   "z": "5",
+   "d0": 9,
+   "s": "+2h icon",
+   "1": "Web URL",
+   "2": "https://cusyejearwlwbqeabspa.supabase.co/functions/v1/icon?offset=2h",
+   "b": {
+    "a": [
+     {
+      "a": 655.0,
+      "b": 646
+     }
+    ],
+    "b": 0
+   },
+   "c": {
+    "a": [
+     {
+      "a": 940,
+      "b": 646
+     }
+    ],
+    "b": 0
+   },
+   "d": {
+    "a": [
+     {
+      "a": 290,
+      "b": 646
+     }
+    ],
+    "b": 0
+   },
+   "e": {
+    "a": [
+     {
+      "a": 290,
+      "b": 646
+     }
+    ],
+    "b": 0
+   }
+  },
+  {
+   "z": "1",
+   "d0": 10,
+   "1": "Numans-Regular",
+   "f": "uicol_white-100",
+   "b": {
+    "a": [
+     {
+      "a": 1110,
+      "b": 646
+     }
+    ],
+    "b": 0
+   },
+   "c": {
+    "a": [
+     {
+      "a": 870,
+      "b": 646
+     }
+    ],
+    "b": 0
+   },
+   "d": {
+    "a": [
+     {
+      "a": 380,
+      "b": 646
+     }
+    ],
+    "b": 0
+   },
+   "e": {
+    "a": [
+     {
+      "a": 170,
+      "b": 646
+     }
+    ],
+    "b": 0
+   },
+   "66": [
+    {
+     "34": "Numans-Regular",
+     "5": "Weather (Hourly)",
+     "6": "+3h - Temperature"
+    },
+    {
+     "34": "Numans-Regular",
+     "5": "Custom Text",
+     "6": "Text",
+     "25": "°"
+    }
+   ],
+   "s": "+3h temp"
+  },
+  {
+   "z": "5",
+   "d0": 11,
+   "s": "+3h icon",
+   "1": "Web URL",
+   "2": "https://cusyejearwlwbqeabspa.supabase.co/functions/v1/icon?offset=3h",
+   "b": {
+    "a": [
+     {
+      "a": 1155.0,
+      "b": 646
+     }
+    ],
+    "b": 0
+   },
+   "c": {
+    "a": [
+     {
+      "a": 1050,
+      "b": 646
+     }
+    ],
+    "b": 0
+   },
+   "d": {
+    "a": [
+     {
+      "a": 290,
+      "b": 646
+     }
+    ],
+    "b": 0
+   },
+   "e": {
+    "a": [
+     {
+      "a": 290,
+      "b": 646
+     }
+    ],
+    "b": 0
+   }
+  },
+  {
+   "z": "1",
+   "d0": 12,
+   "1": "Numans-Regular",
+   "f": "uicol_white-50",
+   "b": {
+    "a": [
+     {
+      "a": 120,
+      "b": 646
+     }
+    ],
+    "b": 0
+   },
+   "c": {
+    "a": [
+     {
+      "a": 1380,
+      "b": 646
+     }
+    ],
+    "b": 0
+   },
+   "d": {
+    "a": [
+     {
+      "a": 360,
+      "b": 646
+     }
+    ],
+    "b": 0
+   },
+   "e": {
+    "a": [
+     {
+      "a": 115,
+      "b": 646
+     }
+    ],
+    "b": 0
+   },
+   "66": [
+    {
+     "34": "Numans-Regular",
+     "5": "Javascript",
+     "6": "Script",
+     "10": "var main = function() {\n    today = new Date();\n    today.setHours(today.getHours() + 1);\n    return today.toLocaleString([], {hour: 'numeric'});\n}"
+    }
+   ],
+   "s": "+1h hour"
+  },
+  {
+   "z": "1",
+   "d0": 13,
+   "1": "Numans-Regular",
+   "f": "uicol_white-50",
+   "b": {
+    "a": [
+     {
+      "a": 620,
+      "b": 646
+     }
+    ],
+    "b": 0
+   },
+   "c": {
+    "a": [
+     {
+      "a": 1380,
+      "b": 646
+     }
+    ],
+    "b": 0
+   },
+   "d": {
+    "a": [
+     {
+      "a": 360,
+      "b": 646
+     }
+    ],
+    "b": 0
+   },
+   "e": {
+    "a": [
+     {
+      "a": 115,
+      "b": 646
+     }
+    ],
+    "b": 0
+   },
+   "66": [
+    {
+     "34": "Numans-Regular",
+     "5": "Javascript",
+     "6": "Script",
+     "10": "var main = function() {\n    today = new Date();\n    today.setHours(today.getHours() + 2);\n    return today.toLocaleString([], {hour: 'numeric'});\n}"
+    }
+   ],
+   "s": "+2h hour"
+  },
+  {
+   "z": "1",
+   "d0": 14,
+   "1": "Numans-Regular",
+   "f": "uicol_white-50",
+   "b": {
+    "a": [
+     {
+      "a": 1120,
+      "b": 646
+     }
+    ],
+    "b": 0
+   },
+   "c": {
+    "a": [
+     {
+      "a": 1380,
+      "b": 646
+     }
+    ],
+    "b": 0
+   },
+   "d": {
+    "a": [
+     {
+      "a": 360,
+      "b": 646
+     }
+    ],
+    "b": 0
+   },
+   "e": {
+    "a": [
+     {
+      "a": 115,
+      "b": 646
+     }
+    ],
+    "b": 0
+   },
+   "66": [
+    {
+     "34": "Numans-Regular",
+     "5": "Javascript",
+     "6": "Script",
+     "10": "var main = function() {\n    today = new Date();\n    today.setHours(today.getHours() + 3);\n    return today.toLocaleString([], {hour: 'numeric'});\n}"
+    }
+   ],
+   "s": "+3h hour"
+  },
+  {
+   "z": "5",
+   "d0": 15,
+   "s": "Backdrop",
+   "1": "Web URL",
+   "2": "https://widgy.fra1.digitaloceanspaces.com/images/0mWssaHECXOsMzxR7cIWpxWRxVC6AK4EnT03FiA5.heic",
+   "b": {
+    "a": [
+     {
+      "a": 0,
+      "b": 646
+     }
+    ],
+    "b": 0
+   },
+   "c": {
+    "a": [
+     {
+      "a": 0,
+      "b": 646
+     }
+    ],
+    "b": 0
+   },
+   "d": {
+    "a": [
+     {
+      "a": 1600,
+      "b": 646
+     }
+    ],
+    "b": 0
+   },
+   "e": {
+    "a": [
+     {
+      "a": 1600,
+      "b": 646
+     }
+    ],
+    "b": 0
+   }
+  }
+ ],
+ "0": 27,
+ "6": 2,
+ "9": 33,
+ "10": true,
+ "20": false,
+ "21": false,
+ "29": true,
+ "a2": 15,
+ "l2": "",
+ "m2": "",
+ "n2": "",
+ "o2": "",
+ "p2": "",
+ "q2": "",
+ "zzz": ""
+}
