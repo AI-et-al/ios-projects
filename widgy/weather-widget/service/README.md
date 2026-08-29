@@ -24,3 +24,16 @@ Deploy history: Vercel was the original target but the session's connector
 cannot create Vercel projects (403), so it landed on Supabase. Redeploy by
 passing `supabase/index.ts` to the Supabase MCP `deploy_edge_function`
 (name `icon`, `verify_jwt: false`).
+
+## Outages
+
+**2026-08-29:** project found `INACTIVE` — Supabase free-tier projects
+auto-pause after ~1 week without qualifying activity, and a paused
+project's DNS stops resolving entirely (`ENOTFOUND`), so every
+forecast-row image in the widget went blank. Restored via the Supabase
+MCP `restore_project`. If rows go blank again, check project status
+first; restore takes ~2 minutes. Widget traffic evidently did not count
+as (or did not generate) enough activity to prevent the pause, so expect
+recurrence; durable fixes are a keep-alive with qualifying activity or
+moving the function to a host that does not pause (Vercel was attempted
+2026-08-18 and failed with a 403 on project creation — worth retrying).
