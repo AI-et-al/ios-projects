@@ -1,0 +1,130 @@
+[
+  {
+    "widgy_key": "f3",
+    "condition": "day-clear-sky",
+    "source_id": "1000031068",
+    "source_file": "11-1000031068.png",
+    "file": "day-clear-sky.png",
+    "sha256": "f3d2dabe64ad6cceeb3fd5e6abee4a32c16188b9fbff6888e79d5d86bd0a0d67"
+  },
+  {
+    "widgy_key": "g3",
+    "condition": "day-fair-partly-cloudy",
+    "source_id": "1000031073",
+    "source_file": "20-1000031073.png",
+    "file": "day-fair-partly-cloudy.png",
+    "sha256": "69c6ee6b42ca69db0c096e141d72c96366d3aa96772b25caa26be72757370152"
+  },
+  {
+    "widgy_key": "h3",
+    "condition": "day-cloudy",
+    "source_id": "1000031069",
+    "source_file": "9-1000031069-2.png",
+    "file": "day-cloudy.png",
+    "sha256": "7d7e032542a6760a05d9b11ce4b5833b32d316890aed34a7f8c4ef6252d631b5"
+  },
+  {
+    "widgy_key": "i3",
+    "condition": "day-light-rain",
+    "source_id": "1000031067",
+    "source_file": "14-1000031067.png",
+    "file": "day-light-rain.png",
+    "sha256": "a986d6e436822f62c1ede226c074556afed41e946beef0d46d09933579235551"
+  },
+  {
+    "widgy_key": "j3",
+    "condition": "day-heavy-rain",
+    "source_id": "1000031063",
+    "source_file": "7-1000031063.png",
+    "file": "day-heavy-rain.png",
+    "sha256": "e5800b475dc8712e0f24a7c057c2957dd20dbe8df4eed26b4489b58b13a4d342"
+  },
+  {
+    "widgy_key": "k3",
+    "condition": "day-heavy-rain-thunder",
+    "source_id": "1000031071",
+    "source_file": "19-1000031071.png",
+    "file": "day-heavy-rain-thunder.png",
+    "sha256": "9c06fd4279d68ef31c131fd54313a29220619abb00620918fc2d829cd10b2dfb"
+  },
+  {
+    "widgy_key": "l3",
+    "condition": "day-snow",
+    "source_id": "1000031084",
+    "source_file": "35-1000031084.png",
+    "file": "day-snow.png",
+    "sha256": "d4c178d2e5740d8809ffb52911b7b42d8f02c1a9f1cd65cc5a7adfddd406787a"
+  },
+  {
+    "widgy_key": "m3",
+    "condition": "day-fog",
+    "source_id": "1000031094",
+    "source_file": "50-1000031094.png",
+    "file": "day-fog.png",
+    "sha256": "cc8c2c09634c030e2b56282d3470aefbce924cd1a56c7a49488de48603bb6475"
+  },
+  {
+    "widgy_key": "n3",
+    "condition": "night-clear-sky",
+    "source_id": "1000031075",
+    "source_file": "62-1000031075.png",
+    "file": "night-clear-sky.png",
+    "sha256": "fd2edb91b77b4819da52c390bbfafa8808ea6ffdfd4bf7d2d3df2298d2717089"
+  },
+  {
+    "widgy_key": "o3",
+    "condition": "night-fair-partly-cloudy",
+    "source_id": "1000031082",
+    "source_file": "37-1000031082.png",
+    "file": "night-fair-partly-cloudy.png",
+    "sha256": "a62468e8a7cda2f765a6eb436a9c733f2cc61f5403850470c1d7b6b2ce843cbb"
+  },
+  {
+    "widgy_key": "p3",
+    "condition": "night-cloudy",
+    "source_id": "1000031081",
+    "source_file": "34-1000031081.png",
+    "file": "night-cloudy.png",
+    "sha256": "c4961bd877318fa1d625ead3102937d7fa265cd908962807b0d4f7b595f25c63"
+  },
+  {
+    "widgy_key": "q3",
+    "condition": "night-light-rain",
+    "source_id": "1000031079",
+    "source_file": "26-1000031079.png",
+    "file": "night-light-rain.png",
+    "sha256": "9124eadd88edec0169aeb965b3688385d1c28cc1a34fe517174f7922c3cd3ead"
+  },
+  {
+    "widgy_key": "r3",
+    "condition": "night-heavy-rain",
+    "source_id": "1000031078",
+    "source_file": "23-1000031078-2.png",
+    "file": "night-heavy-rain.png",
+    "sha256": "94e3643cf4119306c0d61a03c75cb58fa0eced44baa510c59c3e79090a1c91d5"
+  },
+  {
+    "widgy_key": "s3",
+    "condition": "night-heavy-rain-thunder",
+    "source_id": "1000031080",
+    "source_file": "28-1000031080-2.png",
+    "file": "night-heavy-rain-thunder.png",
+    "sha256": "50442a37f6f1a027c1ae32f3b56f5e4f14279271b7f7ae4698bea384b5c218e2"
+  },
+  {
+    "widgy_key": "t3",
+    "condition": "night-snow",
+    "source_id": "1000031084",
+    "source_file": "35-1000031084.png",
+    "file": "night-snow.png",
+    "sha256": "d4c178d2e5740d8809ffb52911b7b42d8f02c1a9f1cd65cc5a7adfddd406787a"
+  },
+  {
+    "widgy_key": "u3",
+    "condition": "night-fog",
+    "source_id": "1000031094",
+    "source_file": "50-1000031094.png",
+    "file": "night-fog.png",
+    "sha256": "cc8c2c09634c030e2b56282d3470aefbce924cd1a56c7a49488de48603bb6475"
+  }
+]
